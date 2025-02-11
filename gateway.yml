@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+
+        - id: thread-service
+          uri: lb://thread-service
+          predicates:
+            - Path=/threads/**
+
+        - id: room-service
+          uri: lb://room-service
+          predicates:
+            - Path=/rooms/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discoveryserver:8761/eureka/
