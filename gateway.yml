@@ -16,6 +16,9 @@ spring:
           uri: lb://thread-service
           predicates:
             - Path=/threads/**
+            - Path=/threads
+            - Path=/replies/**
+            - Path=/replies
 
         - id: room-service
           uri: lb://room-service
