@@ -6,6 +6,10 @@ spring:
     name: gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: user-service
           uri: lb://user-service
@@ -15,10 +19,7 @@ spring:
         - id: thread-service
           uri: lb://thread-service
           predicates:
-            - Path=/threads/**
-            - Path=/threads
-            - Path=/replies/**
-            - Path=/replies
+            - Path=/threads/**, /threads, /replies/**, /replies
 
         - id: room-service
           uri: lb://room-service
