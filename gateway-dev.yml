@@ -6,5 +6,5 @@ spring:
     oauth2:
       resource-server:
         jwt:
-          issuer-uri: http://localhost:8000/realms/threadstacksuser
+          issuer-uri: http://localhost:8000/realms/ThreadStacks
           jwk-set-uri: http://localhost:8000/realms/threadstacksuser/protocol/openid-connect/certs
