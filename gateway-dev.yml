@@ -1,41 +1,7 @@
-server:
-  port: 8080
-
-# spring:
-#   application:
-#     name: gateway
-#   cloud:
-#     gateway:
-#       discovery:
-#         locator:
-#           enabled: true
-#           lower-case-service-id: true
-#       routes:
-#         - id: user-service
-#           uri: lb://user-service
-#           predicates:
-#             - Path=/users/**, /auth/**
-
-#         - id: thread-service
-#           uri: lb://thread-service
-#           predicates:
-#             - Path=/threads/**, /threads, /replies/**, /replies
-
-#         - id: room-service
-#           uri: lb://room-service
-#           predicates:
-#             - Path=/rooms/**
-
-eureka:
-  client:
-    registryFetchIntervalSeconds: 5
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    leaseRenewalIntervalInSeconds: 5
 spring:
-  cloud:
-    loadbalancer:
-      cache:
-        ttl: 5s
-
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: http://localhost:8000/realms/threadstacksuser
+          jwk-set-uri: http://localhost:8000/realms/threadstacksuser/protocol/openid-connect/certs
