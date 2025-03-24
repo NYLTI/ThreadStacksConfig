@@ -7,23 +7,23 @@ resilience4j:
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 3
-        minimumNumberOfCalls: 2
+        minimumNumberOfCalls: 1
         automaticTransitionFromOpenToHalfOpenEnabled: true
 
       threadServiceCircuitBreaker:
         registerHealthIndicator: true
         slidingWindowSize: 5
-        failureRateThreshold: 60
+        failureRateThreshold: 50
         waitDurationInOpenState: 15s
         permittedNumberOfCallsInHalfOpenState: 2
-        minimumNumberOfCalls: 2
+        minimumNumberOfCalls: 1
         automaticTransitionFromOpenToHalfOpenEnabled: true
 
       roomServiceCircuitBreaker:
         registerHealthIndicator: true
         slidingWindowSize: 8
-        failureRateThreshold: 55
+        failureRateThreshold: 50
         waitDurationInOpenState: 12s
         permittedNumberOfCallsInHalfOpenState: 3
-        minimumNumberOfCalls: 2
+        minimumNumberOfCalls: 1
         automaticTransitionFromOpenToHalfOpenEnabled: true
